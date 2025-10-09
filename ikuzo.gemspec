@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Dang Quang Minh"]
   spec.email         = ["ojisanchamchi@gmail.com"]
 
-  spec.summary       = "Generate fun, motivational commit messages."
-  spec.description   = "Ikuzo delivers short, humorous, and motivational commit messages for developers via both CLI and library usage."
+  spec.summary       = "Generate convention-ready commit messages without overthinking them."
+  spec.description   = "Ikuzo delivers short, humorous, and motivational commit messages so you can satisfy Conventional Commit lint rules and get back to coding—life is short, take time to code—whether you call it from the CLI or as a library."
   spec.homepage      = "https://github.com/ojisanchamchi/ruby_ikuzo#readme"
   spec.license       = "MIT"
 

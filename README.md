@@ -1,6 +1,12 @@
 # Ikuzo
 
+[![Gem Version](https://badge.fury.io/rb/ikuzo.svg)](https://badge.fury.io/rb/ikuzo)
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/ojisanchamchi)
+
 Ikuzo is a Ruby gem that generates short, motivational commit messages for developers. Use it as a CLI tool or as a library inside your scripts when you need an instant morale boost.
+
+I built it after one too many blank stares at my terminal, trying to squeeze yet another branch name into a Conventional Commit subject. Life is short, take time to code, so I'd rather spend the focus on shipping than negotiating with commit lint rules. With Ikuzo, I can fire off a compliant, upbeat message in seconds and get back to building.
 
 ## Installation
 
