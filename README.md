@@ -102,7 +102,7 @@ Available categories:
 Show the installed version:
 
 $ ikuzo --version
-0.1.0
+1.0.0
 ```
 
 Each Conventional Commit category builds a `<type>: ...` message from your current Git branch, appends a cleaned-up motivational quip, and falls back to a default subject if the branch cannot be detected.
