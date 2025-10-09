@@ -27,7 +27,7 @@ bundle install
 Outputs vary because messages are chosen at random. Ikuzo commits automatically; add `--no-commit` if you only want to print the message.
 
 Commit with a random message (default: feat):
-
+```
 $ ikuzo
 git commit -m "feat: main linted the vibes not the code"
 [main abc1234] feat: main linted the vibes not the code
@@ -35,13 +35,13 @@ git commit -m "feat: main linted the vibes not the code"
 ```
 
 Print a random message from a specific category without committing:
-
+```
 $ ikuzo funny --no-commit
 This commit was pair-programmed with caffeine.
 ```
 
 Commit with a random message explicitly (also default behavior):
-
+```
 $ ikuzo commit
 git commit -m "It compiled on my machine, scout's honor."
 [main abc1234] It compiled on my machine, scout's honor.
@@ -49,13 +49,13 @@ git commit -m "It compiled on my machine, scout's honor."
 ```
 
 Skip committing and just print the message:
-
+```
 $ ikuzo --no-commit
 feat: main linted the vibes not the code
 ```
 
 Specify a category explicitly and commit:
-
+```
 $ ikuzo --category dev
 git commit -m "Logs cleaned, metrics gleam."
 [main ghi9012] Logs cleaned, metrics gleam.
@@ -63,13 +63,13 @@ git commit -m "Logs cleaned, metrics gleam."
 ```
 
 Generate a Conventional Commit message from the current branch (omit `--no-commit` to auto commit):
-
+```
 $ ikuzo feat --no-commit
 feat: main no rubber duck was harmed in this fix
 ```
 
 Pick any Conventional Commit type that you need:
-
+```
 $ ikuzo fix
 git commit -m "fix: main stack trace more like snack trace"
 [main jkl3456] fix: main stack trace more like snack trace
@@ -79,7 +79,7 @@ git commit -m "fix: main stack trace more like snack trace"
 Supported types align with the Conventional Commits 1.0.0 spec: build, ci, chore, docs, feat, fix, perf, refactor, revert, style, and test.
 
 List available categories:
-
+```
 $ ikuzo --list-categories
 Available categories:
   - general
@@ -100,7 +100,7 @@ Available categories:
 ```
 
 Show the installed version:
-
+```
 $ ikuzo --version
 1.0.0
 ```
