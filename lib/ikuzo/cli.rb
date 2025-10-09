@@ -36,7 +36,7 @@ module Ikuzo
 
     def parse_options
       options = {
-        commit: false,
+        commit: true,
         list_categories: false,
         category: nil
       }
@@ -48,6 +48,10 @@ module Ikuzo
 
       option_parser.on("--commit", "Run `git commit -m` with the generated message") do
         options[:commit] = true
+      end
+
+      option_parser.on("--no-commit", "Only print the message; skip running git commit") do
+        options[:commit] = false
       end
 
       option_parser.on("--list-categories", "List available message categories") do
@@ -71,15 +75,14 @@ module Ikuzo
 
     def option_parser
       @option_parser ||= OptionParser.new do |opts|
-        opts.banner = "Usage: ikuzo [options] [category] [commit]"
+        opts.banner = "Usage: ikuzo [options] [category]"
         opts.separator("")
         opts.separator("Examples:")
         opts.separator("  ikuzo")
         opts.separator("  ikuzo funny")
-        opts.separator("  ikuzo feat")
+        opts.separator("  ikuzo feat --no-commit")
         opts.separator("  ikuzo fix")
-        opts.separator("  ikuzo dev --commit")
-        opts.separator("  ikuzo --category motivation")
+        opts.separator("  ikuzo --category motivation --no-commit")
       end
     end
 
@@ -92,6 +95,8 @@ module Ikuzo
           options[:category] = normalized
         elsif normalized == "commit"
           options[:commit] = true
+        elsif normalized == "no-commit" || normalized == "print"
+          options[:commit] = false
         end
       end
     end
