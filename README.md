@@ -1,4 +1,4 @@
-# Ikuzo
+# ikuzo 行くぞ (いくぞ)
 
 [![Gem Version](https://badge.fury.io/rb/ikuzo.svg)](https://badge.fury.io/rb/ikuzo)
 
