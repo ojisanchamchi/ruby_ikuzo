@@ -4,6 +4,6 @@
 lib_path = File.expand_path("../lib", __dir__)
 $LOAD_PATH.unshift(lib_path) unless $LOAD_PATH.include?(lib_path)
 
-require "yolo"
+require "ikuzo"
 
-Yolo::CLI.new(ARGV).run
+Ikuzo::CLI.new(ARGV).run

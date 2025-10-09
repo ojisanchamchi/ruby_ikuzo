@@ -1,11 +1,11 @@
-# Yolo
+# Ikuzo
 
-Yolo is a Ruby gem that generates short, motivational commit messages for developers. Use it as a CLI tool or as a library inside your scripts when you need an instant morale boost.
+Ikuzo is a Ruby gem that generates short, motivational commit messages for developers. Use it as a CLI tool or as a library inside your scripts when you need an instant morale boost.
 
 ## Installation
 
 ```bash
-gem install yolo
+gem install ikuzo
 ```
 
 If you are developing locally:
@@ -22,22 +22,19 @@ Outputs vary because messages are chosen at random.
 
 Print a random message (default: feat):
 
-```bash
-$ yolo
+$ ikuzo
 feat: main linted the vibes not the code
 ```
 
 Print a random message from a specific category:
 
-```bash
-$ yolo funny
+$ ikuzo funny
 This commit was pair-programmed with caffeine.
 ```
 
 Commit with a random message (requires staged changes in Git):
 
-```bash
-$ yolo commit
+$ ikuzo commit
 git commit -m "It compiled on my machine, scout's honor."
 [main abc1234] It compiled on my machine, scout's honor.
  1 file changed, 1 insertion(+)
@@ -45,8 +42,7 @@ git commit -m "It compiled on my machine, scout's honor."
 
 Or use the long option:
 
-```bash
-$ yolo --commit
+$ ikuzo --commit
 git commit -m "Stack trace? More like snack trace."
 [main def5678] Stack trace? More like snack trace.
  1 file changed, 1 insertion(+)
@@ -54,22 +50,19 @@ git commit -m "Stack trace? More like snack trace."
 
 Specify a category explicitly:
 
-```bash
-$ yolo --category dev
+$ ikuzo --category dev
 Logs cleaned, metrics gleam.
 ```
 
 Generate a Conventional Commit message from the current branch:
 
-```bash
-$ yolo feat
+$ ikuzo feat
 feat: main no rubber duck was harmed in this fix
 ```
 
 Pick any Conventional Commit type that you need:
 
-```bash
-$ yolo fix
+$ ikuzo fix
 fix: main stack trace more like snack trace
 ```
 
@@ -77,8 +70,7 @@ Supported types align with the Conventional Commits 1.0.0 spec: build, ci, chore
 
 List available categories:
 
-```bash
-$ yolo --list-categories
+$ ikuzo --list-categories
 Available categories:
   - general
   - funny
@@ -99,8 +91,7 @@ Available categories:
 
 Show the installed version:
 
-```bash
-$ yolo --version
+$ ikuzo --version
 0.1.0
 ```
 
@@ -109,9 +100,9 @@ Each Conventional Commit category builds a `<type>: ...` message from your curre
 ### Library
 
 ```ruby
-require "yolo"
+require "ikuzo"
 
-message = Yolo.random
+message = Ikuzo.random
 # Defaults to the feat category
 puts message
 ```

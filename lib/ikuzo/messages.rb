@@ -2,7 +2,7 @@
 
 require "open3"
 
-module Yolo
+module Ikuzo
   # Provides random commit messages grouped by category.
   class Messages
     DEFAULT_CATEGORY = :feat

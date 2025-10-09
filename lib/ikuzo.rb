@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require "yolo/version"
-require "yolo/messages"
-require "yolo/cli"
+require "ikuzo/version"
+require "ikuzo/messages"
+require "ikuzo/cli"
 
-module Yolo
+module Ikuzo
   def self.random(category = nil)
     Messages.random(category)
   end

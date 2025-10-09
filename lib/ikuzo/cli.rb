@@ -2,7 +2,7 @@
 
 require "optparse"
 
-module Yolo
+module Ikuzo
   # CLI entry point for generating random commit messages.
   class CLI
     def initialize(argv, stdout: $stdout, stderr: $stderr, kernel: Kernel)
@@ -55,7 +55,7 @@ module Yolo
       end
 
       option_parser.on("-v", "--version", "Print version") do
-        @stdout.puts(Yolo::VERSION)
+        @stdout.puts(Ikuzo::VERSION)
         exit_success
       end
 
@@ -71,15 +71,15 @@ module Yolo
 
     def option_parser
       @option_parser ||= OptionParser.new do |opts|
-        opts.banner = "Usage: yolo [options] [category] [commit]"
+        opts.banner = "Usage: ikuzo [options] [category] [commit]"
         opts.separator("")
         opts.separator("Examples:")
-        opts.separator("  yolo")
-        opts.separator("  yolo funny")
-        opts.separator("  yolo feat")
-        opts.separator("  yolo fix")
-        opts.separator("  yolo dev --commit")
-        opts.separator("  yolo --category motivation")
+        opts.separator("  ikuzo")
+        opts.separator("  ikuzo funny")
+        opts.separator("  ikuzo feat")
+        opts.separator("  ikuzo fix")
+        opts.separator("  ikuzo dev --commit")
+        opts.separator("  ikuzo --category motivation")
       end
     end
 
