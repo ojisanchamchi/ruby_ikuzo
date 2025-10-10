@@ -68,6 +68,16 @@ $ ikuzo feat --no-commit
 feat: main no rubber duck was harmed in this fix
 ```
 
+Append BTC or XAU pricing to the generated message (use `xau` or `gold`):
+```
+$ ikuzo --price=btc --no-commit
+fix: stack trace more like snack trace (BTC: $64,123.45)
+
+$ ikuzo --price=xau --no-commit
+chore: merge dreams into main (XAU: $2,045.67)
+```
+> Pricing data comes from CoinGecko (BTC) and GoldPrice.org (XAU). If the lookup fails, Ikuzo keeps the original message without the price suffix. When Ruby cannot complete the HTTPS request, Ikuzo retries with `curl` if it is available. TLS certificate checks are disabled by default for CoinGecko requests; set `IKUZO_INSECURE_SSL=0` if you want to enforce verification instead.
+
 Pick any Conventional Commit type that you need:
 ```
 $ ikuzo fix
@@ -76,7 +86,7 @@ git commit -m "fix: main stack trace more like snack trace"
  1 file changed, 1 insertion(+)
 ```
 
-Supported types align with the Conventional Commits 1.0.0 spec: build, ci, chore, docs, feat, fix, perf, refactor, revert, style, and test.
+Supported types align with the Conventional Commits 1.1.0 spec: build, ci, chore, docs, feat, fix, perf, refactor, revert, style, and test.
 
 List available categories:
 ```
@@ -102,7 +112,7 @@ Available categories:
 Show the installed version:
 ```
 $ ikuzo --version
-1.0.0
+1.1.0
 ```
 
 Each Conventional Commit category builds a `<type>: ...` message from your current Git branch, appends a cleaned-up motivational quip, and falls back to a default subject if the branch cannot be detected.

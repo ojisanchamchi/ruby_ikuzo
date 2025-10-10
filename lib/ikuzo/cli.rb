@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "optparse"
+require "ikuzo/pricing"
 
 module Ikuzo
   # CLI entry point for generating random commit messages.
@@ -21,6 +22,7 @@ module Ikuzo
       end
 
       message = Messages.random(options[:category])
+      message = append_price(message, options[:price]) if options[:price]
       @stdout.puts(message)
 
       return exit_success unless options[:commit]
@@ -38,7 +40,8 @@ module Ikuzo
       options = {
         commit: true,
         list_categories: false,
-        category: nil
+        category: nil,
+        price: nil
       }
 
       categories_text = Messages.categories.join(", ")
@@ -56,6 +59,10 @@ module Ikuzo
 
       option_parser.on("--list-categories", "List available message categories") do
         options[:list_categories] = true
+      end
+
+      option_parser.on("-pASSET", "--price=ASSET", "Append pricing for btc or xau (gold) to the message") do |asset|
+        options[:price] = normalize_price_asset(asset)
       end
 
       option_parser.on("-v", "--version", "Print version") do
@@ -84,6 +91,27 @@ module Ikuzo
         opts.separator("  ikuzo fix")
         opts.separator("  ikuzo --category motivation --no-commit")
       end
+    end
+
+    def normalize_price_asset(asset)
+      normalized = asset.to_s.strip.downcase
+      return :btc if %w[btc bitcoin].include?(normalized)
+      return :xau if normalized == "xau" || normalized == "gold"
+
+      raise OptionParser::InvalidArgument, "Unknown price asset '#{asset}'. Supported values: btc, xau."
+    end
+
+    def append_price(message, asset)
+      suffix = Pricing.suffix_for(asset)
+      unless suffix
+        @stderr.puts("Unable to fetch pricing for #{asset.to_s.upcase}; continuing without price.")
+        return message
+      end
+
+      "#{message} #{suffix}"
+    rescue StandardError => e
+      @stderr.puts("Failed to append #{asset.to_s.upcase} price: #{e.message}")
+      message
     end
 
     def apply_positional_arguments(options)
