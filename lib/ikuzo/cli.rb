@@ -154,11 +154,15 @@ module Ikuzo
     end
 
     def exit_success
-      @kernel.exit(0)
+      kernel_exit(0)
     end
 
     def exit_failure
-      @kernel.exit(1)
+      kernel_exit(1)
+    end
+
+    def kernel_exit(status)
+      @kernel.send(:exit, status) # Kernel#exit is private; use send to bypass visibility.
     end
   end
 end
